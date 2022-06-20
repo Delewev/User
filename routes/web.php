@@ -1,6 +1,11 @@
 <?php
 
+use App\Http\Controllers\Controller;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
+use Mockery\Matcher\Contains;
+use App\Http\Controllers\GradeController;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +18,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [UserController::class, 'index']);
+Route::get('grade/coll', [GradeController::class, 'show']);
