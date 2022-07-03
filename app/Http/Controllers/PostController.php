@@ -24,7 +24,7 @@ class PostController extends Controller
     public function all()
     {
         return PostResource::collection(Post::all());
-        return response()->json($post);
+        return response()->json();
     }
 
     public function return($id)
@@ -52,7 +52,7 @@ class PostController extends Controller
 
     public function ip()
     {
-        $post = Post::query()->where('ip', '>=', '1')->get()->groupBy('ip');
+        $post = Post::query()->get()->groupBy('ip')->map->pluck('user_id');
         return response()->json($post);
     }
 
